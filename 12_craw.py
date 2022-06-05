@@ -30,10 +30,11 @@ for i in range(1,4):
           price = driver.find_element_by_xpath(f'//*[@id="__next"]/div/div[2]/div[2]/div[3]/div[1]/ul/div/div[{j}]/li/div/div[2]/div[2]/strong/span/span[2]').text
           print(f'{price}')
         except:
-          price = driver.find_element_by_xpath(f'//*[@id="__next"]/div/div[2]/div[2]/div[3]/div[1]/ul/div/div[{j}]/li/div/div[2]/div[2]/strong/span/span').text
-          print(f'{price}')
-          
-
+          try:
+            price = driver.find_element_by_xpath(f'//*[@id="__next"]/div/div[2]/div[2]/div[3]/div[1]/ul/div/div[{j}]/li/div/div[2]/div[2]/strong/span/span').text
+            print(f'{price}')
+          except:
+            name = 'NAN'
 
             
         shopping.append((name,price))
