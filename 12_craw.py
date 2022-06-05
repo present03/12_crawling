@@ -16,7 +16,7 @@ serch.send_keys(Keys.ENTER)
 
 shopping=[('제품명','가격')]
 
-for i in range(1,4):
+for i in range(1,3):
     for j in range(1,47):
         time.sleep(10)
         try:
@@ -38,9 +38,6 @@ for i in range(1,4):
         shopping.append((name,price))
     if i==1:
       next=driver.find_element_by_css_selector('#__next > div > div.style_container__1YjHN > div.style_inner__18zZX > div.style_content_wrap__1PzEo > div.style_content__2T20F > div.pagination_pagination__6AcG4 > a')
-      next.click()
-    if i==2:
-      next=driver.find_element_by_css_selector('#__next > div > div.style_container__1YjHN > div.style_inner__18zZX > div.style_content_wrap__1PzEo > div.style_content__2T20F > div.pagination_pagination__6AcG4 > a.pagination_next__1ITTf')
       next.click()
 
  
