@@ -15,7 +15,6 @@ driver.find_element_by_xpath('//*[@id="_verticalGnbModule"]/div/div[2]/div/div[2
 serch.send_keys(Keys.ENTER)
 
 shopping=[]
-name = driver.find_element_by_xpath('//*[@id="__next"]/div/div[2]/div[2]/div[3]/div[1]/ul/div/div[8]/li/div/div[2]/div[1]/a')
 for i in range(1,4):
     time.sleep(10)
     for j in range(1,47):
