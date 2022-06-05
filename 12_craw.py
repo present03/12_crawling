@@ -49,3 +49,35 @@ driver.quit()
 
 data = pd.DataFrame(shopping)
 data.to_csv('C:/Users/user/Desktop/12-crawling/crawlingdata.csv')
+
+for ele in shopping:
+    if 'NAN' in ele:
+        try:
+            shopping.pop(shopping.index(ele))
+        except:
+            pass
+
+del shopping[5::]
+
+for ele in shopping:
+    print(shopping.index(ele)+1, ele)
+
+
+num = int(input('원하는 상품의 숫자를 입력하시오: '))
+
+driver = webdriver.Chrome(executable_path="C:/Users/junjj/OneDrive/바탕 화면/12-crawling/chromedriver")
+url = 'https://shopping.naver.com/home/p/index.naver'
+driver.get(url)
+
+time.sleep(3)
+
+serch = driver.find_element_by_xpath('//*[@id="_verticalGnbModule"]/div/div[2]/div/div[2]/div/div[2]/form/fieldset/div/input')
+serch.click()
+driver.find_element_by_xpath('//*[@id="_verticalGnbModule"]/div/div[2]/div/div[2]/div/div[2]/form/fieldset/div/input').send_keys(shopping[num-1][0])
+serch.send_keys(Keys.ENTER)
+
+time.sleep(3)
+
+price = driver.find_element_by_xpath('//*[@id="__next"]/div/div[2]/div/div[3]/div[1]/ul/div/div[1]/li/div/div[2]/div[2]/strong/span').text
+
+print(f'{price}')
