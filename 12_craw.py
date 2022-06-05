@@ -15,10 +15,10 @@ driver.find_element_by_xpath('//*[@id="_verticalGnbModule"]/div/div[2]/div/div[2
 serch.send_keys(Keys.ENTER)
 
 shopping=[('제품명','가격')]
+
 for i in range(1,4):
-    time.sleep(10)
     for j in range(1,47):
-        
+        time.sleep(10)
         try:
           name = driver.find_element_by_xpath(f'//*[@id="__next"]/div/div[2]/div[2]/div[3]/div[1]/ul/div/div[{j}]/li/div/div[2]/div[1]/a').text
           print(f'{name}')
@@ -33,11 +33,17 @@ for i in range(1,4):
             price = driver.find_element_by_xpath(f'//*[@id="__next"]/div/div[2]/div[2]/div[3]/div[1]/ul/div/div[{j}]/li/div/div[2]/div[2]/strong/span/span').text
             print(f'{price}')
           except:
-            name = 'NAN'
-
+            price = 'NAN'
             
         shopping.append((name,price))
-    driver.find_element_by_css_selector('#__next > div > div.style_container__1YjHN > div.style_inner__18zZX > div.style_content_wrap__1PzEo > div.style_content__2T20F > div.pagination_pagination__6AcG4 > a')
+    if i==1:
+      next=driver.find_element_by_css_selector('#__next > div > div.style_container__1YjHN > div.style_inner__18zZX > div.style_content_wrap__1PzEo > div.style_content__2T20F > div.pagination_pagination__6AcG4 > a')
+      next.click()
+    if i==2:
+      next=driver.find_element_by_css_selector('#__next > div > div.style_container__1YjHN > div.style_inner__18zZX > div.style_content_wrap__1PzEo > div.style_content__2T20F > div.pagination_pagination__6AcG4 > a.pagination_next__1ITTf')
+      next.click()
+
+ 
 print(shopping)
 driver.quit()
 
