@@ -14,7 +14,7 @@ serch.click()
 driver.find_element_by_xpath('//*[@id="_verticalGnbModule"]/div/div[2]/div/div[2]/div/div[2]/form/fieldset/div/input').send_keys('신발')
 serch.send_keys(Keys.ENTER)
 
-shopping=[]
+shopping=[('제품명','가격')]
 for i in range(1,4):
     time.sleep(10)
     for j in range(1,47):
