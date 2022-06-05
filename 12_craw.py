@@ -80,4 +80,7 @@ time.sleep(3)
 
 price = driver.find_element_by_xpath('//*[@id="__next"]/div/div[2]/div/div[3]/div[1]/ul/div/div[1]/li/div/div[2]/div[2]/strong/span').text
 
+data_price = pd.DataFrame(price)
+data_price.to_csv('C:/Users/junjj/OneDrive/바탕 화면/12-crawling/price')
+
 print(f'{price}')
